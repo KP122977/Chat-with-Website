@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import crawlRouter from './routes/crawl.js';
+import chatRoutes from "./routes/chat.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 // Routes
 app.use('/api/crawl', crawlRouter);
 
+app.use("/api/chat", chatRoutes);
 // Health check
 app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Chat with Website API is running' });

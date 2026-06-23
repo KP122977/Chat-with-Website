@@ -18,3 +18,8 @@ npm-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# test files
+server/testModel.js
+server/src/indexer/test*.js
+server/src/retriever/test*.js

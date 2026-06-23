@@ -3,6 +3,7 @@ import * as cheerio from 'cheerio';
 import robotsParser from 'robots-parser';
 import { URL } from 'url';
 
+
 const MAX_PAGES = parseInt(process.env.MAX_PAGES) || 50;
 const MAX_DEPTH = parseInt(process.env.MAX_DEPTH) || 3;
 const RATE_LIMIT_MS = 1000 / (parseInt(process.env.RATE_LIMIT_RPS) || 1);
