@@ -1,5 +1,5 @@
-const CHUNK_SIZE = 1500;
-const CHUNK_OVERLAP = 150;
+const CHUNK_SIZE = 3000;
+const CHUNK_OVERLAP = 200;
 
 export function chunkText(text) {
   if (!text || !text.trim()) {

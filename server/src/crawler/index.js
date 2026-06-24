@@ -4,7 +4,7 @@ import robotsParser from 'robots-parser';
 import { URL } from 'url';
 
 
-const MAX_PAGES = parseInt(process.env.MAX_PAGES) || 8;
+const MAX_PAGES = parseInt(process.env.MAX_PAGES) || 5;
 const MAX_DEPTH = parseInt(process.env.MAX_DEPTH) || 1;
 const RATE_LIMIT_MS = 250;
 
