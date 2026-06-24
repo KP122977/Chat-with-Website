@@ -6,6 +6,7 @@ import { getStoreSize } from '../indexer/vectorStore.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
+  console.log("🔥 Crawl API called");
   const { url } = req.body;
 
   if (!url) {

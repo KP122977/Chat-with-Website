@@ -4,9 +4,9 @@ import robotsParser from 'robots-parser';
 import { URL } from 'url';
 
 
-const MAX_PAGES = parseInt(process.env.MAX_PAGES) || 50;
-const MAX_DEPTH = parseInt(process.env.MAX_DEPTH) || 3;
-const RATE_LIMIT_MS = 1000 / (parseInt(process.env.RATE_LIMIT_RPS) || 1);
+const MAX_PAGES = parseInt(process.env.MAX_PAGES) || 8;
+const MAX_DEPTH = parseInt(process.env.MAX_DEPTH) || 1;
+const RATE_LIMIT_MS = 250;
 
 // Sleep helper for rate limiting
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -60,6 +60,15 @@ function extractLinks($, baseUrl, currentUrl) {
       ) {
         // Normalize URL — remove trailing slash and query params
         const normalized = `${parsed.origin}${parsed.pathname}`.replace(/\/$/, '');
+        if (
+         normalized.includes("/privacy") ||
+         normalized.includes("/terms") ||
+         normalized.includes("/cookie") ||
+         normalized.includes("/login") ||
+         normalized.includes("/register")
+       ) {
+  return;
+}
         links.add(normalized);
       }
     } catch {
@@ -72,6 +81,7 @@ function extractLinks($, baseUrl, currentUrl) {
 
 // Main crawl function
 export async function crawlWebsite(startUrl) {
+  console.log("🚀 Starting crawl for:", startUrl);
   const baseUrl = new URL(startUrl).origin;
   const robots = await fetchRobots(baseUrl);
 

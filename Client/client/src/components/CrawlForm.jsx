@@ -59,6 +59,7 @@ Enter a website URL and create a searchable knowledge base. </p> </div>
       disabled={loading}
       className="flex-1 px-4 py-3 border border-slate-200 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
     />
+    
 
     <button
       onClick={handleCrawl}
@@ -80,6 +81,9 @@ duration-300
       {loading ? "Crawling..." : "Crawl"}
     </button>
   </div>
+   <p className="text-sm text-slate-500 mt-2">
+    ⏳ Processing usually takes 5–15 seconds depending on website size.
+   </p>
 
   {loading && (
     <div className="bg-indigo-50 rounded-2xl p-5">
