@@ -44,7 +44,7 @@ return ( <div className="flex flex-col gap-5"> <div> <h2 className="text-xl font
 🌐 Crawl Website </h2> <p className="text-sm text-slate-500 mt-1">
 Enter a website URL and create a searchable knowledge base. </p> </div>
 
-```
+
   <div className="flex gap-3">
     <input
       type="text"
@@ -63,24 +63,48 @@ Enter a website URL and create a searchable knowledge base. </p> </div>
     <button
       onClick={handleCrawl}
       disabled={loading}
-      className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all disabled:opacity-50"
+      className="
+bg-gradient-to-r
+from-indigo-500
+to-purple-500
+text-white
+px-8
+py-3
+rounded-xl
+font-medium
+hover:scale-105
+transition-all
+duration-300
+"
     >
       {loading ? "Crawling..." : "Crawl"}
     </button>
   </div>
 
   {loading && (
-    <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-      <p className="text-sm text-blue-700">
-        🔍 Crawling website...
-      </p>
-      <p className="text-sm text-blue-700">
-        📚 Extracting content...
-      </p>
-      <p className="text-sm text-blue-700">
-        🧠 Generating embeddings...
-      </p>
-    </div>
+    <div className="bg-indigo-50 rounded-2xl p-5">
+
+  <div className="flex items-center gap-3 mb-4">
+    <span>✅</span>
+    <span>Crawling Website</span>
+  </div>
+
+  <div className="flex items-center gap-3 mb-4">
+    <span>✅</span>
+    <span>Extracting Content</span>
+  </div>
+
+  <div className="flex items-center gap-3 mb-4">
+    <div className="animate-spin rounded-full h-5 w-5 border-2 border-indigo-500 border-t-transparent"></div>
+    <span>Generating Embeddings</span>
+  </div>
+
+  <div className="flex items-center gap-3 opacity-50">
+    <span>⬜</span>
+    <span>Ready For Questions</span>
+  </div>
+
+</div>
   )}
 
   {result && (
